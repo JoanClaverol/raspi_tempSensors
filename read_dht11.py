@@ -13,6 +13,7 @@ instance = dht11.DHT11(pin = 4)
 result = instance.read()
 while True:
     if result.is_valid():
+        print(time.asctime())
         print("Temperature: %-3.1f C" % result.temperature)
         print("Humidity: %-3.1f %%" % result.humidity)
     else:
