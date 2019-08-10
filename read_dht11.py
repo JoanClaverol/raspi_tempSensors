@@ -9,14 +9,12 @@ GPIO.setmode(GPIO.BCM)
 GPIO.cleanup()
 
 # read data using pin 14
-instance = dht11.DHT11(pin = 4)
-result = instance.read()
 while True:
+    instance = dht11.DHT11(pin = 4)
+    result = instance.read()
     if result.is_valid():
         print(time.asctime())
         print("Temperature: %-3.1f C" % result.temperature)
         print("Humidity: %-3.1f %%" % result.humidity)
     else:
         print("Error: %d" % result.error_code)
-
-    time.sleep(1)
